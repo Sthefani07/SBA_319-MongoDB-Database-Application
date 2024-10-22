@@ -44,9 +44,11 @@ router.post('/', async (req,res)=>{
 
 
 //Delete ------------------------------------------------------
-    router.delete('/', async (req, res) => {
+    router.delete('/:id', async (req, res) => {
         try {
+            let deletedDestination = await Destination.findByIdAndDelete(req.params.id);
 
+            res.json(deletedDestination);
         } catch (err) {
             console.error(err)
             res.status(500).json({ msg: "Server Error" })
