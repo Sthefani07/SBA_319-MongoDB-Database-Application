@@ -3,8 +3,9 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import connectDB from './db/conn.mjs';
 import destinationRoutes from './routes/destinationRoutes.mjs'
-import userRoutes from './routes/destinationRoutes.mjs';
-//import bcrypt from 'bcrypt';
+import User from './models/userSchema.mjs';
+import userRoutes from './routes/userRoutes.mjs'
+import bcrypt from 'bcrypt';
 
 // Setup----------------------------------
 dotenv.config();
@@ -27,6 +28,16 @@ app.use('/destination', destinationRoutes);
 app.use('/user', userRoutes)
 
 
+
+// app.get('/seed', async (req, res) => {
+
+//   await User.deleteMany({})
+
+//   // Create items in database
+//     await User.create(User)
+
+//   res.send('Sending database')
+// });
 
 
 

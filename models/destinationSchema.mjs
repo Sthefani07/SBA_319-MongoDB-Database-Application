@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
 
 // Destination Schema
-const destinationShema = new mongoose.Schema({
-    name: {type: String,required: true},
-    country: { type: String, required: true },
-    description: { type: String, required: true }
+const destinationSchema = new mongoose.Schema({
+    city: {type: String},
+    country: { type: String},
+    description: { type: String }
     
 });
 
 
-destinationShema.index({name: 1})
+destinationSchema.index({name: 1})
 
 
-export default mongoose.model("Destination", destinationShema);
+export default mongoose.model('Destination', destinationSchema);
