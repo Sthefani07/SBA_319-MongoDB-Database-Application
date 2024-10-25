@@ -48,9 +48,11 @@ router.get('/', async (req, res) => {
 })
 
 // Update -----------------------------------------------
-router.put('/', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
+        let updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new: true });
 
+        res.json(updatedUser)
     } catch (err) {
         console.error(err)
         res.status(500).json({ msg: "Server Error" })
