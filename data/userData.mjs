@@ -1,4 +1,6 @@
-export const account = [
+
+
+export const User = [
     {
         firstName: "Alice",
         email: "alice@example.com",
