@@ -38,7 +38,9 @@ router.post('/', async (req, res, next) =>{
 // Read --------------------------------------------------
 router.get('/', async (req, res) => {
     try {
+        const allUsers = await User.find({});
 
+        res.json(allUsers)
     } catch (err) {
         console.error(err)
         res.status(500).json({ msg: "Server Error" })
