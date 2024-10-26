@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
 //Read ----------------------------------------------------
 router.get('/', async (req, res) => {
     try {
-        const allDestinations = await Destination.find({})
+        const allDestinations = await Destination.find({}).limit(5)
 
         res.json(allDestinations);
     } catch (err) {

@@ -1,6 +1,6 @@
 import express from 'express';
 import User from '../models/userSchema.mjs';
-import { UserData } from '../data/userData.mjs';
+//import { UserData } from '../data/userData.mjs';
 
 import bcrypt from 'bcrypt'
 
@@ -8,12 +8,27 @@ import bcrypt from 'bcrypt'
 
 const router = express.Router();
 
-// another Simple way to use my data from file UserData.mjs
-router.get('/', (req, res) => {
-    res.json(UserData); 
-});
- 
+// another Simple way to use my data from file UserData.mjs in case i need it
+// router.get('/', (req, res) => {
+//     res.json(UserData); 
+// });
+
+
+
+//    -- THUNDER CLIENT line of code for testing --
+// {
+// "firstName": "Student",
+//     "email": "student@exemplo",
+//         "password": "securepassword"
+//   }
+
+
+
+
+
+
 //Create -------------------------------------------------
+ // everytime when i create a POST my terminal crash, althouth it works!!
 router.post('/', async (req, res, next) =>{
     try {
         let newUser = new User({
