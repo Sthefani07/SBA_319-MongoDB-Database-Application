@@ -20,7 +20,9 @@ router.post('/', async(req, res) => {
 //Read ------------------------------
 router.get('/', async (req, res) => {
     try {
+        const allnotes = await Note.find({})
 
+        res.json(allnotes)
 
         res.json(newNote)
     } catch (err) {
