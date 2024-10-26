@@ -1,4 +1,4 @@
-export const Destination = [
+export const DestinationData = [
     {
         city: "Paris",
         country: "France",

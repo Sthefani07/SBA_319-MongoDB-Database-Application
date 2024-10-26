@@ -1,6 +1,6 @@
 
 
-export const User = [
+export const UserData = [
     {
         firstName: "Alice",
         email: "alice@example.com",

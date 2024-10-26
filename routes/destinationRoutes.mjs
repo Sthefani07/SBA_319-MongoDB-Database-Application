@@ -1,5 +1,8 @@
 import express from 'express';
-import Destination from '../models/destinationSchema.mjs'
+import Destination from '../models/destinationSchema.mjs';
+
+
+
 const router = express.Router();
 
 

@@ -4,7 +4,10 @@ import bodyParser from 'body-parser';
 import connectDB from './db/conn.mjs';
 import destinationRoutes from './routes/destinationRoutes.mjs'
 import userRoutes from './routes/userRoutes.mjs'
+import noteRoutes from './routes/noteRoutes.mjs'
 //import bcrypt from 'bcrypt';
+
+
 // Setup----------------------------------
 dotenv.config();
 const app = express();
@@ -23,7 +26,8 @@ app.use(bodyParser.json({extended:true}));
 
 //Routes-----------------------------------
 app.use('/destination', destinationRoutes);
-app.use('/user', userRoutes)
+app.use('/user', userRoutes);
+app.use('/note', noteRoutes);
 
 
 

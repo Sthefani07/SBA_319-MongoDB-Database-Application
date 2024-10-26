@@ -1,11 +1,18 @@
 import express from 'express';
 import User from '../models/userSchema.mjs';
+import { UserData } from '../data/userData.mjs';
+
 import bcrypt from 'bcrypt'
 
 
 
 const router = express.Router();
 
+// another Simple way to use my data from file UserData.mjs
+router.get('/', (req, res) => {
+    res.json(UserData); 
+});
+ 
 //Create -------------------------------------------------
 router.post('/', async (req, res, next) =>{
     try {
@@ -22,13 +29,14 @@ router.post('/', async (req, res, next) =>{
             return res.status(400).json({ msg: "Missing required field: Name, email, or password" });
         } 
 
+
         //Check if the username already exists
         const existingUser = await User.findOne({ email: req.body.email });
         if (existingUser) {
             return res.status(409).json({ msg: 'Email Already Taken' });
         }
 
-    //     hash the password
+    //     hash the password is nor working. 
     //     const salt = await bcrypt.genSalt(10);
     //    const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
