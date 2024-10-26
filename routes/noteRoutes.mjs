@@ -47,11 +47,11 @@ router.put('/:id', async (req, res) => {
 });
 
 //Delete ------------------------------
-router.delete('/', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
+        let deletedNote = await Note.findByIdAndDelete(req.params.id);
 
-
-        res.json(newNote)
+        res.json(deletedNote)
     } catch (err) {
         console.error(err)
         res.status(500).json({ mgs: "Server error" })
