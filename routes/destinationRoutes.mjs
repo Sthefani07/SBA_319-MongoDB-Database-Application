@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 
-//Create ------------------------------------------------  http://localhost:3000/destination
+//Create ------------------------------------------------  
 router.post('/', async (req, res) => {
     try {
         let newDestination = new Destination(req.body);

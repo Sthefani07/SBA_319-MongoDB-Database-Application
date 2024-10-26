@@ -3,10 +3,8 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import connectDB from './db/conn.mjs';
 import destinationRoutes from './routes/destinationRoutes.mjs'
-import User from './models/userSchema.mjs';
 import userRoutes from './routes/userRoutes.mjs'
-import bcrypt from 'bcrypt';
-
+//import bcrypt from 'bcrypt';
 // Setup----------------------------------
 dotenv.config();
 const app = express();

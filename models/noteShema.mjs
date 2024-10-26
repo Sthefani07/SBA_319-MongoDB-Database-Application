@@ -10,4 +10,4 @@ const noteSchema = new mongoose.Schema({
 noteSchema.index({ city: -1 })
 
 
-export default mongoose.model("User", noteSchema);
+export default mongoose.model("Note", noteSchema);

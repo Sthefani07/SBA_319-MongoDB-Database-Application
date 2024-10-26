@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
 });
 
 
-userSchema.index({name: -1})
+userSchema.index({ firstName: -1})
 
 
 export default mongoose.model('User', userSchema);

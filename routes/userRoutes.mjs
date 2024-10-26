@@ -1,5 +1,7 @@
 import express from 'express';
 import User from '../models/userSchema.mjs';
+import bcrypt from 'bcrypt'
+
 
 
 const router = express.Router();
@@ -7,30 +9,36 @@ const router = express.Router();
 //Create -------------------------------------------------
 router.post('/', async (req, res, next) =>{
     try {
-        if (!req.body.name || !req.body.email || !req.body.password) {
+        let newUser = new User({
+            firstName: req.body.firstName,
+            email: req.body.email,
+            password: req.body.password
+        });
+
+        await newUser.save();
+        res.json(newUser);
+
+        if (!req.body.firstName || !req.body.email || !req.body.password) {
             return res.status(400).json({ msg: "Missing required field: Name, email, or password" });
         } 
 
-        // Check if the username already exists
+        //Check if the username already exists
         const existingUser = await User.findOne({ email: req.body.email });
         if (existingUser) {
             return res.status(409).json({ msg: 'Email Already Taken' });
         }
 
-        // hash the password
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    //     hash the password
+    //     const salt = await bcrypt.genSalt(10);
+    //    const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
     
-        let newUser = new User(req.body);
-        await newUser.save();
-
-        res.json(newUser);
     } catch (err) {
         console.error(err)
         res.status(500).json({msg: "Server Error"})
     }
 })
+
 
 
 
