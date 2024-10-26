@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 
         res.json(allnotes)
 
-        res.json(newNote)
+        
     } catch (err) {
         console.error(err)
         res.status(500).json({ mgs: "Server error" })
@@ -33,11 +33,12 @@ router.get('/', async (req, res) => {
 });
 
 // Updated --------------------------
-router.put('/', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
+        let updatedNote = await Note.findByIdAndUpdate(req.params.id, req.body, {new:  true});
 
 
-        res.json(newNote)
+        res.json(updatedNote)
     } catch (err) {
         console.error(err)
         res.status(500).json({ mgs: "Server error" })
