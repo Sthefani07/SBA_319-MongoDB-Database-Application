@@ -15,14 +15,6 @@ const router = express.Router();
 
 
 
-//    -- THUNDER CLIENT line of code for testing --
-// {
-// "firstName": "Student",
-//     "email": "student@exemplo",
-//         "password": "securepassword"
-//   }
-
-
 
 
 

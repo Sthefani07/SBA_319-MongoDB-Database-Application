@@ -12,4 +12,4 @@ const destinationSchema = new mongoose.Schema({
 destinationSchema.index({name: 1})
 
 
-export default mongoose.model('Destination', destinationSchema);
+export default mongoose.model('Destination', destinationSchema); 
